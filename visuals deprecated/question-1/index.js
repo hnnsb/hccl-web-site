@@ -130,5 +130,5 @@ chart = BarChart(alphabet, {
   color: "steelblue"
 })
 
-d3.select("#graph1").append(function () { return chart })
+d3.select("#graph1").append(() => chart)
 
