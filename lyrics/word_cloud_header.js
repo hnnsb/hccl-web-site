@@ -41,7 +41,7 @@ function WordCloud(text, {
             g.append("text")
                 .attr("font-size", size)
                 .attr("transform", `translate(${x},${y}) rotate(${rotate})`)
-                .text(text);
+                .text(text.text);
         });
 
     cloud.start();
