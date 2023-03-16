@@ -172,7 +172,7 @@ function LineChart(data, {
 
 /* End visualization functions */
 
-fetch("./means_df.json")
+fetch("./means_df_charts.json")
     .then((response) => response.json())
     .then((data) => {
         object = { feature: "", value: "", year: "" }
