@@ -1,15 +1,3 @@
-.box {
-    width: 50%;
-    height: 50%;
-    background-color: blue;
-    color:aliceblue;
-    text-align: center;
-}
-
-.bar {
-    fill: steelblue;
-}
-
 .wordcloud-container {
     position:relative;
     overflow: hidden;
@@ -27,3 +15,89 @@
     right: -9999px;
     margin: auto;
 }
+
+
+/* Styles for the graphs imported in iframes. Adjust the width and heigth of the wrapper div if necessary. */
+.iframe100 {
+    border-width: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.iframe100-wrapper {
+    float: left;
+    overflow: hidden;
+
+    height: 68vh;
+    width: 50vw;
+
+    padding: 0;
+}
+
+.iframe75 {
+    border-width: 0;
+    height: 133%;
+    width: 133%;
+
+    -ms-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    -o-transform: scale(0.75);
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+
+    -ms-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.iframe75-wrapper {
+    float: left;
+    overflow: hidden;
+
+    height: 51vh;
+    width: 37.5vw;
+
+    padding: 0;
+}
+
+.iframe50 {
+    border-width: 0;
+    height: 200%;
+    width: 200%;
+
+    -ms-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+
+    -ms-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.iframe50-wrapper {
+    float: left;
+    overflow: hidden;
+
+    height: 34vh;
+    width: 25vw;
+
+    padding: 0;
+}
+
+/* Comment in for debugging: */
+/* 
+* { background:#000!important;color:#0f0!important;outline:solid #f00 1px!important; background-color: rgba(255,0,0,.2) !important; }
+* * { background-color: rgba(0,255,0,.2) !important; }
+* * * { background-color: rgba(0,0,255,.2) !important; }
+* * * * { background-color: rgba(255,0,255,.2) !important; }
+* * * * * { background-color: rgba(0,255,255,.2) !important; }
+* * * * * * { background-color: rgba(255,255,0,.2) !important; }
+* * * * * * * { background-color: rgba(255,0,0,.2) !important; }
+* * * * * * * * { background-color: rgba(0,255,0,.2) !important; }
+* * * * * * * * * { background-color: rgba(0,0,255,.2) !important; }  */

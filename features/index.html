@@ -20,7 +20,7 @@
     <title>HCCL · Data Science Project</title>
 </head>
 
-<body>
+<body class="bg-body-tertiary">
     <nav class="navbar bg-primary-subtle shadow mb-3 bg-body-tertiary" role="navigation">
         <div class="container-fluid justify-content-between">
             <div class="nav nav-pills nav-fill ">
@@ -51,49 +51,64 @@
 
     <!-- Page Content down below -->
 
+    <style>
+
+    </style>
+
     <div class="container-fluid justify-content-center m-auto">
         <h1>
             How did the Features change over time?
         </h1>
-        <br />
-        <h2>
-            Songs are getting shorter and shorter.  
-        </h2>
-        
-        
-        <div class="iframe-container">
-            <iframe src="../plotly/predict_duration.html"></iframe>
-            <iframe src="../plotly/predict_valence.html"></iframe>
+        <div class="row align-items-center m-5 bg-white shadow pt-2">
+            <h2 class="text-center">
+                Songs are getting shorter and shorter.
+            </h2>
+            <div class="col">
+                <p>
+                    Hier kann text hin.
+                </p>
+            </div>
+            <div class="col">
+                <div class="iframe100-wrapper">
+                    <iframe class="iframe100" src="../plotly/predict_duration.html"></iframe>
+                </div>
+            </div>
+        </div>
 
+        <div class="row align-items-center m-5 bg-white shadow">
+            <h2>
+                Something happens with valence:
+            </h2>
+            <div class="col">
 
-            
-          </div>
-          
-          <style>
-            .iframe-container {
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: space-between;
-              overflow: hidden;
-            }
-            
-            .iframe-container iframe {
-              display: inline-block;
-              width: calc(50% - 10px);/* halbe Breite des Containers */
-              height: 800px; /* anpassen der Höhe an Ihre Bedürfnisse */
-              margin: 0px;
-            }
-          </style>
-        <p>
-            Hier Graphik mit Duration + Prediction rein
-        </p>
-        <h2>
-            I'll dance, dance, dance
-            - With my hands, hands, hands
-        </h2>
-        <p>
-            Hier Graphik rein wo danceability hoch geht
-        </p>
+                <div class="iframe100-wrapper">
+                    <iframe class="iframe100" src="../plotly/predict_valence.html"></iframe>
+                </div>
+            </div>
+            <div class="col">
+                <p>
+                    Hier kann text hin.
+                </p>
+            </div>
+        </div>
+
+        <div class="row align-items-center m-5 bg-white shadow">
+            <h2>
+                I'll dance, dance, dance - With my hands, hands, hands
+            </h2>
+            <div class="col">
+
+                <div class="iframe100-wrapper">
+                    <iframe class="iframe100" src="danceability_placeholder"></iframe>
+                </div>
+            </div>
+            <div class="col">
+                <p>
+                    Hier wird die danceablity beschrieben
+                </p>
+            </div>
+        </div>
+
         <p>
             If you want to read more about the description of the features you cann follow the link:
         </p>
@@ -105,10 +120,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-
-
-        
-          
 </body>
 
 </html>
