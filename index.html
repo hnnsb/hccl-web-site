@@ -20,7 +20,7 @@
   <title>HCCL · Data Science Project</title>
 </head>
 
-<body>
+<body class="bg-body-tertiary">
   <nav class="navbar bg-primary-subtle shadow mb-3 bg-body-tertiary" role="navigation">
     <div class="container-fluid justify-content-between">
       <div class="nav nav-pills nav-fill ">
@@ -50,72 +50,80 @@
   </nav>
 
   <!-- Page Content down below -->
-  <style>
-    .svg-container {
-      width: 200px;
-      height: 200px;
-    }
-  </style>
 
-  <div class="container-fluid justify-content-center m-auto">
-    <h1>
-      Homepage
-    </h1>
-    <h2>
-      How did music taste change over time?
-    </h2>
-    <p>
-      The aim of this project is to analyse Spotify data to anaylse the change of the music taste over time.
-      For this aim there are three different types of data that are used in this data science project.
-    </p>
-    <img src="assets/Three_Sources.png" width="500">
-    <h2>
-      Research questions
-    </h2>
-    <p>
-      Research questions will follow soon.
-    </p>
-    <p>
-      The occurrence in the charts serves as a measure of popularity for the evaluation. We therefore assume that the
-      song was among the most popular songs if it achieved a placement in the year-end charts.
-      This assumption serves as the basis for the analysis and evaluation of the data.
-    </p>
-    <p>
-      - Hier eine Aussagekräftige Grafik einfügen! -
-    </p>
+  <div class="container-fluid justify-content-center">
 
-  </div>
-  <div class="container">
-    <div class="row">
+    <div class="row align-items-center m-5 bg-white shadow">
       <div class="col-md">
-        <h2>
-          Features
+        <h2 class="text-center mt-3">
+          How did music taste change over time?
         </h2>
-        <p>
-          If you want to learn more about the change of audio features of the songs over time:
+        <p class="m-3 text" style="font-size: large;">
+          The aim of this project is to analyse Spotify data to anaylse the change of the music taste over time.
+          For this aim there are three different types of data that are used in this data science project.
         </p>
-        <a class="btn btn-primary" href="../features/">Click here for Features</a>
       </div>
       <div class="col-md">
-        <h2>
-          Lyrics
-        </h2>
-        <p>
-          If you want to learn more about the change of the lyrics, what are the most frequent words and how did the
-          emotions of the songs change:
-        </p>
-        <a class="btn btn-primary" href="../lyrics/">Click here for Lyrics</a>
-      </div>
-      <div class="col-md">
-        <h2>
-          Genres
-        </h2>
-        <p>
-          If you want to learn more about our own made up genres and how the popularity of genres changed over time:
-        </p>
-        <a class="btn btn-primary" href="../genres/">Click here for Genres</a>
+        <img src="assets/Three_Sources.png" width="100%"
+          alt="Venn diagram of 'Lyrics', 'Aaudio Features' and 'Chart Placement'. Each aspect is sympolised in a circle and these circles overlap each other.">
       </div>
     </div>
+
+    <div class="row align-items-center m-5 bg-white shadow">
+      <h2>
+        Research questions
+      </h2>
+      <p>
+        Research questions will follow soon.
+      </p>
+      <p>
+        The occurrence in the charts serves as a measure of popularity for the evaluation. We therefore assume that the
+        song was among the most popular songs if it achieved a placement in the year-end charts.
+        This assumption serves as the basis for the analysis and evaluation of the data.
+      </p>
+      <p>
+        - Hier eine Aussagekräftige Grafik einfügen! -
+      </p>
+    </div>
+
+    <div class="row justify-content-center ">
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Räpresentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Features</h5>
+          <p class="card-text">
+            Learn more about the change of audio features of the songs over time.
+          </p>
+          <a href="../features/" class="btn btn-primary" role="link">Go to features</a>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Räpresentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Lyrics</h5>
+          <p class="card-text">
+            Learn more about the vocabulary and the emotions of the lyrics.
+          </p>
+          <a href="../lyrics/" class="btn btn-primary" role="link">Go to lyrics</a>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Räpresentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Genres</h5>
+          <p class="card-text">
+            Learn why we made up our own genre groups and how their popularity rose and fell over time.
+          </p>
+          <a href="../genres/" class="btn btn-primary" role="link">Go to genres</a>
+        </div>
+      </div>
+    </div>
+
+
+
+
   </div>
 
 
