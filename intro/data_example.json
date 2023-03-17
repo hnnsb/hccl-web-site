@@ -1,0 +1,35 @@
+{
+    "artists": [
+        {
+            "id": "3WrFJ7ztbogyGnTHbHJFl2",
+            "name": "The Beatles"
+        }
+    ],
+    "duration_ms": 243027,
+    "explicit": false,
+    "id": "7iN1s7xHE4ifF5povM6A48",
+    "name": "Let It Be - Remastered 2009",
+    "popularity": 75,
+    "track_number": 6,
+    "genres": [
+        "beatlesque",
+        "british invasion",
+        "classic rock",
+        "merseybeat",
+        "psychedelic rock",
+        "rock"
+    ],
+    "danceability": 0.443,
+    "energy": 0.403,
+    "key": 0,
+    "loudness": -8.339,
+    "mode": 1,
+    "speechiness": 0.0322,
+    "acousticness": 0.631,
+    "instrumentalness": 0,
+    "liveness": 0.111,
+    "valence": 0.41,
+    "tempo": 143.462,
+    "analysis_url": "https://api.spotify.com/v1/audio-analysis/7iN1s7xHE4ifF5povM6A48",
+    "time_signature": 4
+}

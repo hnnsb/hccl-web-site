@@ -10,6 +10,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+    integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
+    async></script>
   <!-- D3 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.2/d3.min.js"></script>
   <!--  -->
@@ -20,7 +23,7 @@
   <title>HCCL · Data Science Project</title>
 </head>
 
-<body>
+<body class="bg-body-tertiary">
   <nav class="navbar bg-primary-subtle shadow mb-3 bg-body-tertiary" role="navigation">
     <div class="container-fluid justify-content-between">
       <div class="nav nav-pills nav-fill ">
@@ -51,56 +54,113 @@
 
   <!-- Page Content down below -->
 
-  <div class="container-fluid justify-content-center m-auto">
-    <h2>
-      Bye Bye acoustic songs! Or is there a comeback?
-    </h2>
+  <div class="container-fluid justify-content-center">
 
-    <svg id="features_chart" width="800" height="400"></svg>
-    <p>
-      The Features change over time. But the biggest differenct occurs in accousticness.
-    </p>
+    <div class="row align-items-center m-5 bg-white shadow">
+      <div class="col-md">
+        <h2 class="text-center mt-3">
+          Bye Bye acoustic songs! Or is there a comeback?
+        </h2>
+        <div class="row">
+          <div class="col">
+            <p>
+              The Features change over time. But the biggest differenct occurs in accousticness.
+            </p>
+          </div>
+          <div class="col">
+            <svg id="features_chart" width="800" height="400"></svg>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <h2>
-      Data Acquisition
-    </h2>
-    <p>
-      The used data of this project has its origin in three different sources. We used two APIs and received some data
-      with web crawling as well.
-    </p>
-    <h3>
-      Spotify API
-    </h3>
-    <p>
-      We used the Spotify API to collect the song Features of the different Tracks.
+    <div class="row m-5 bg-white shadow justify-content-center align-items-center">
+      <div class="col-md-5">
+        <h2>
+          Data Acquisition
+        </h2>
+        <p>
+          Since we want to investigate the popular music,
+          we needed sources for popular music according to the year.
+          For this we found two different options.
+          One the one side Spotify offers "Top Hits of YEAR"-Playlists ranging from 1970 to 2019.
+          Here we get 100 Songs picked from Spotify for that year.
+          On the other side we researched chart placements for the global year end charts ranging from 1955 to 2022.
+          For roughly the first 40 years, there 20 tracks per year, and after that, there are 40 tracks per year.
 
-      To read more about the spotify API you can follow the link below.
+          We used the Spotify API to extract information for all the songs coming from these two sources.
+          Additionally to that we used the Genius API to search for lyrics for the top songs of a year.
+        </p>
+      </div>
 
-    </p>
-    <a class="btn btn-secondary btn-sm" href="https://developer.spotify.com/documentation/web-api/reference/#/">Click
-      here for more Information about the Spotify API!</a>
-    <h3>
-      Media Traffic - Web Crawling
-    </h3>
-    <p>
-      We used mediatraffic to get information about chart placement. In doing so, we chose to use the year-end charts.
-      About the song information, we fetched the related song features from the Spotify API.
-    </p>
-    <a class="btn btn-secondary btn-sm" href="http://www.mediatraffic.de/previous2.htm">Click
-      here for more Information about the Mediatraffic Website!</a>
-    <h3>
-      Genius API
-    </h3>
-    <p>
-      We used the Genius API to get the lyrics.
-    </p>
-    <a class="btn btn-secondary btn-sm" href="https://docs.genius.com">Click
-      here for more Information about the Genius API!</a>
-    <h4>Data Storage</h4>
-    <p>
-      All data was stored in .json files. We used different folders to sort the song rankings by their source (Spotify
-      Top Hits or Media Traffic). The lyrics for these songs ended up in a separate folder.
-    </p>
+      <div class="col-md-3 p-2">
+        <div class="card m-1 p-2">
+          <h3>
+            Spotify API
+          </h3>
+          <p>
+            Request the song features of the top songs.
+          </p>
+          <a class="btn btn-secondary btn-sm" href="https://developer.spotify.com/documentation/web-api/reference/#/"
+            target="_blank">
+            Documentation of SpotifyAPI
+          </a>
+        </div>
+        <div class="card m-1 p-2">
+          <h3>
+            Mediatraffic
+          </h3>
+          <p>
+            Extraction of the songs of the year end charts.
+          </p>
+          <a class="btn btn-secondary btn-sm" href="http://www.mediatraffic.de/previous.htm" target="_blank">
+            Mediatraffic chart archive
+          </a>
+        </div>
+        <div class="card m-1 p-2">
+          <h3>
+            Genius API
+          </h3>
+          <p>
+            Search for song lyrics.
+          </p>
+          <a class="btn btn-secondary btn-sm" href="https://docs.genius.com" target="_blank">
+            Documentation of GeniusAPI
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row m-5 bg-white shadow justify-content-center align-items-top p-2">
+      <div class="col">
+        <h4>Our data</h4>
+        <p>
+          We requested the information cleaned it and preprocessed it a bit, to omit unnecessary data. This data was
+          than
+          saved as JSON-Files for further analysis.
+        </p>
+      </div>
+      <div class="col">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Song data example
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <pre id="beautified"></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <h2>The meaning of the features
     </h2>
     <h3>Intro</h3>
@@ -110,157 +170,243 @@
       files. Which features were used for the analysis and what they say is described below.
       Entire playlists were queried and the songs from them were stored together in one file.
     </p>
-    <h3>
-      Artist
-    </h3>
-    <p>
-      This means the artist who performed the song. If there are more than one artist who performed the song
-      together, they are listed. You get an ID and the name.
-    </p>
-    <h2> Song Features</h2>
-    <p>
-      The following information is related to technical information of the song.
-    </p>
+  </div>
 
-    <h3> Duration (duration_ms)</h3>
-    <p>
-      The length of the track in milliseconds.
-    </p>
-    <h3>
-      Excplicit Lyrics (explicit)
-    </h3>
-    <p>
-      Explicit lyrics refer to the words used in the lyrics. If a song has such explicit lyrics, it contains
-      words, phrases or content that can be considered inappropriate or offensive. They usually have a sexually
-      offensive or violent character. Examples include texts that contain graphic depictions of sexual acts,
-      references to drug use or violence, or the use of vulgar language or swear words.
-      The feature gives a value, true or false. True means that this song contains explicit lyrics and false means
-      that the song does not contain them or the information is unknown.
-    </p>
-    <h3>
-      ID
-    </h3>
-    <p>
-      The Spotify ID for the track.
-    </p>
-    <h3>
-      Name
-    </h3>
-    <p>
-      The name of the track.
-    </p>
-    <h3>
-      Popularity
-    </h3>
-    <p>
-      The popularity of the track. A value between 0 and 100 is assigned, where 100 is the value for the highest
-      popularity. The value is generated by an internal Spotify algorithm and is largely based on the total number
-      of hits for the track and how long ago they were played.
-    </p>
-    <h3> Track number</h3>
-    <p>
-      The number of the track within an album. If an album consists of multiple CDs, it is the value of the space
-      on the CD on which it occurs.
-    </p>
-    <h3>
-      Genres
-    </h3>
-    <p>
-      A list of genres for which the album is classified. Several genres can also be named. If the album cannot be
-      assigned to a genre yet, this entry is empty.
-    </p>
-    <h3>
-      Danceability
-    </h3>
-    <p>
-      The value for danceability describes how suitable the song is for dancing and is based on a combination of
-      musical elements like tempo, stability of the rhythm, strength of the beat, and the overall uniformity. A
-      value between 0 and 1 is given, where a value of 1 means that you can dance to the track particularly well.
-    </p>
-    <h3>
-      Energy
-    </h3>
-    <p>
-      The energy dscribes a perceptual measure of intensity and activity. The energy increases with the high
-      speed, loudness and noise. For example, death metal songs have high energy, while a Mozart song scores low.
-      It is measured with a value between 0 and 1.
-    </p>
-    <h3>
-      Key
-    </h3>
-    <p>
-      The key of the track using the standard pitch class notation. If no key was detected, the value is -1.
-    </p>
-    <h3>
-      Loudness
-    </h3>
-    <p>
-      The value describes the overall loudness of a track in decibels (dB). Loudness refers to the perceived
-      strength or intensity of a sound, which is closely related to its physical amplitude. Loudness values
-      typically fall within a range of -60 dB to 0 dB. By averaging the loudness values across an entire track,
-      you can get a sense of its overall loudness.
-    </p>
-    <h3>
-      Mode
-    </h3>
-    <p>
-      The term "Mode" indicates the modality (major or minor) of a track, as well as the type of scale from which
-      its melodic content is derived. Major is represented by 1 and minor is represented by 0.
-    </p>
-    <h3>
-      Speechiness
-    </h3>
-    <p>
-      Speechiness detects spoken words in a track. Attribute values closer to 1.0 indicate exclusively speech-like
-      recordings, while values above 0.66 suggest tracks made entirely of spoken words. Values between 0.33 and
-      0.66 indicate tracks with both speech and music, such as rap music, and values below 0.33 represent music
-      and non-speech-like tracks.
-    </p>
-    <h3>
-      Acousticness
-    </h3>
-    <p>
-      Acousticness describes a confidence measure of track's acoustics ranges from 0.0 to 1.0, with 1.0 indicating
-      high confidence in the track's acoustics.
-    </p>
-    <h3>
-      Instrumentalness
-    </h3>
-    <p>
-      Predicts if a track has no vocals, treating "Ooh" and "aah" sounds as instrumental. Rap or spoken word
-      tracks are considered "vocal". Instrumentalness values closer to 1.0 indicate a higher likelihood of no
-      vocal content. Values above 0.5 represent instrumental tracks, with higher confidence as the value
-      approaches 1.0.
-    </p>
-    <h3>
-      Liveness
-    </h3>
-    <p>
-      This feature detects audience presence in the recording. Higher liveness values indicate a greater chance of
-      the track being performed live. A value above 0.8 strongly suggests the track is live.
-    </p>
-    <h3>
-      Valence
-    </h3>
-    <p>
-      A measure from 0.0 to 1.0 describes the positive/negative emotion conveyed by a track. High valence
-      indicates positive emotions (e.g. happy, cheerful, euphoric) while low valence indicates negative emotions
-      (e.g. sad, depressed, angry).
-    </p>
-    <h3>
-      Tempo
-    </h3>
-    <p>
-      The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed
-      or pace of a given piece and derives directly from the average beat duration
-    </p>
-    <h2>
-      Data Exploration
-    </h2>
+  <div class="card m-4 shadow" style="width: 22rem;">
+    <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+    <div class="card-body">
+      <h5 class="card-title">Artist</h5>
+      <p class="card-text">
+        The artist who performed the song. If there are more than one artist who performed the song
+        together, they are listed.
+      </p>
+    </div>
   </div>
 
 
+
+  <h2> Song Features</h2>
+  <p>
+    The following information is related to technical information of the song.
+  </p>
+  <div class="container-fluid">
+    <div class="row" data-masonry='{"percentPosition":true }'>
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Duration (duration_ms)</h5>
+          <p class="card-text">
+            The length of the track in milliseconds.
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Excplicit Lyrics (explicit)</h5>
+          <p class="card-text">
+            Does the track contain explicit lyrics? If yes the tracks contains words or phrases, that are considered
+            inappropriate or offensive. Examples are graphic depictions of sexual acts, references to drug use or
+            violence, or the use of vulgar langugage and swear words.
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">ID</h5>
+          <p class="card-text">
+            The Spotify ID for the track.
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Name</h5>
+          <p class="card-text">
+            The name of the track.
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Popularity</h5>
+          <p class="card-text">
+            The popularity of the track. A value between 0 and 100 is assigned, where 100 is the value for the highest
+            popularity. The value is generated by an internal Spotify algorithm and is largely based on the total
+            number of hits for the track and how long ago they were played.
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Track number</h5>
+          <p class="card-text">
+            The number of the track within its album. If an album consists of multiple CDs, it is the number on the
+            specified disc.
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Genres</h5>
+          <p class="card-text">
+            The genres of the album the track belongs to.
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Danceability</h5>
+          <p class="card-text">
+            The value for danceability describes how suitable the song is for dancing and is based on a combination of
+            musical elements like tempo, stability of the rhythm, strength of the beat, and the overall uniformity. A
+            value between 0 and 1 is given, where a value of 1 means that you can dance to the track particularly
+            well.
+          </p>
+        </div>
+      </div>
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Energy</h5>
+          <p class="card-text">
+            The energy describes a perceptual measure of intensity and activity. The energy increases with the high
+            speed, loudness and noise. For example, death metal songs have high energy, while a Mozart song score
+            low. It is measured with a value between 0 and 1.
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Key</h5>
+          <p class="card-text">
+            The key of the track. If no key was detected, the value is -1.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Loudness</h5>
+          <p class="card-text">
+            The value describes the overall loudness of a track in decibels (dB). Loudness refers to the perceived
+            strength or intensity of a sound, which is closely related to its physical amplitude. Loudness values
+            typically fall within a range of -60 dB to 0 dB. By averaging the loudness values across an entire track,
+            you can get a sense of its overall loudness.
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Mode</h5>
+          <p class="card-text">
+            The term "Mode" indicates the modality (major or minor) of a track, as well as the type of scale from
+            which its melodic content is derived. Major is represented by 1 and minor is represented by 0.
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Speechiness</h5>
+          <p class="card-text">
+            Speechiness detects spoken words in a track. Attribute values closer to 1.0 indicate exclusively
+            speech-like recordings, while values above 0.66 suggest tracks made entirely of spoken words.
+            Values between 0.33 and 0.66 indicate tracks with both speech and music, and values below 0.33 represent
+            music.
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Acousticness</h5>
+          <p class="card-text">
+            Acousticness describes a confidence measure of track's acoustics ranges from 0.0 to 1.0, with 1.0
+            indicating a high confidence, that the track is acoustic.
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Instrumentalness</h5>
+          <p class="card-text">
+            Predicts if a track has no vocals, treating "Ooh" and "aah" sounds as instrumental. Rap or spoken word
+            tracks are considered "vocal". Instrumentalness values closer to 1.0 indicate a higher likelihood of no
+            vocal content. Values above 0.5 represent instrumental tracks, with higher confidence as the value
+            approaches 1.0.
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Liveness</h5>
+          <p class="card-text">
+            This feature detects audience presence in the recording.
+            Higher liveness values indicate a greater chance of the track being performed live.
+            A value above 0.8 strongly suggests the track is live.
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Valence</h5>
+          <p class="card-text">
+            A measure from 0.0 to 1.0 describes the positive/negative emotion conveyed by a track. High valence
+            indicates positive emotions (e.g. happy, cheerful, euphoric) while low valence indicates negative emotions
+            (e.g. sad, depressed, angry).
+          </p>
+        </div>
+      </div>
+
+      <div class="card m-4 shadow" style="width: 22rem;">
+        <img src="..." class="card-img-top" alt="Repräsentatives Bild/Grafik für jeden Aspect einfügen">
+        <div class="card-body">
+          <h5 class="card-title">Tempo</h5>
+          <p class="card-text">
+            The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the
+            speed or pace of a given piece and derives directly from the average beat duration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <h2>
+    Data Exploration
+  </h2>
+  </div>
+
   <script src="./features_over_time.js"></script>
+  <script src="./index.js"></script>
 </body>
 
 </html>
