@@ -90,9 +90,84 @@
     padding: 0;
 }
 
+
+/* Responsive graph scaling */
+.iframe1 {
+    border-width: 0;
+    height: 200%;
+    width: 200%;
+
+    -ms-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+
+    -ms-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.iframe1-wrapper {
+    float: left;
+    /* overflow: hidden; */
+
+    height: 36vh;
+    width: 410px;
+
+    padding: 0;
+}
+
+@media (min-width: 800px) {
+    .iframe1 {
+        height: 133%;
+        width: 133%;
+    
+        -ms-transform: scale(0.75);
+        -moz-transform: scale(0.75);
+        -o-transform: scale(0.75);
+        -webkit-transform: scale(0.75);
+        transform: scale(0.75);
+    }
+  
+    .iframe1-wrapper {
+        float: left;
+        overflow: hidden;
+    
+        height: 51vh;
+        width: 610px;
+    
+        padding: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .iframe1 {
+        height: 100%;
+        width: 100%;
+    
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+  
+    .iframe1-wrapper {
+        float: left;
+        overflow: hidden;
+    
+        height: 68vh;
+        width: 820px;
+    
+        padding: 0;
+    }
+}
+
 /* Comment in for debugging: */
-/* 
-* { background:#000!important;color:#0f0!important;outline:solid #f00 1px!important; background-color: rgba(255,0,0,.2) !important; }
+/* * { background:#000!important;color:#0f0!important;outline:solid #f00 1px!important; background-color: rgba(255,0,0,.2) !important; }
 * * { background-color: rgba(0,255,0,.2) !important; }
 * * * { background-color: rgba(0,0,255,.2) !important; }
 * * * * { background-color: rgba(255,0,255,.2) !important; }
