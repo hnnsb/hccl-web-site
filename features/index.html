@@ -2,241 +2,254 @@
 <html lang="en">
 
 <head>
-    <!-- Stylesheet -->
-    <link href="../assets/css/style.css" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    <!-- D3 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.2/d3.min.js"></script>
-    <!--  -->
-    <link rel="icon" type="image/png" href="../favicon.ico">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HCCL · Data Science Project</title>
+  <!-- Stylesheet -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <!-- D3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.2/d3.min.js"></script>
+  <!--  -->
+  <link rel="icon" type="image/png" href="../favicon.ico">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HCCL · Data Science Project</title>
 </head>
 
 <body class="bg-body-tertiary">
-    <nav class="navbar bg-primary-subtle shadow mb-3 bg-body-tertiary" role="navigation">
-        <div class="container-fluid justify-content-between">
-            <div class="nav nav-pills nav-fill ">
-                <a class="navbar-brand" href="../">
-                    <img src="../assets/hccl_logo.png" alt="Hccl group logo" height="40" />
-                </a>
-                <a class="nav-link" href="../">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-house-door-fill" viewBox="0 0 16 16">
-                        <path
-                            d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
-                    </svg>
-                </a>
-            </div>
+  <nav class="navbar bg-primary-subtle shadow mb-3 bg-body-tertiary sticky-top" role="navigation">
+    <div class="container-fluid justify-content-between">
+      <div class="nav nav-pills nav-fill ">
+        <a class="navbar-brand" href="../">
+          <img src="../assets/hccl_logo.png" alt="Hccl group logo" height="40" />
+        </a>
+        <a class="nav-link" href="../">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-house-door-fill" viewBox="0 0 16 16">
+            <path
+              d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
+          </svg>
+        </a>
+      </div>
 
-            <div class="nav nav-pills nav-fill">
-                <a class="nav-link" href="../intro/">Data</a>
-                <a class="nav-link active" aria-current="page" href="../features/">Features</a>
-                <a class="nav-link" href="../lyrics/">Lyrics</a>
-                <a class="nav-link" href="../genres/">Genres</a>
-            </div>
-
-            <div class="nav nav-pills nav-fill ">
-                <a class="nav-link" href="../about/">About</a>
-            </div>
+      <div class="nav nav-pills nav-fill">
+        <a class="nav-link" href="../intro/">Data</a>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" aria-current="page" data-bs-toggle="dropdown" href="../features/"
+            role="button" aria-expanded="false">Features</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#prediction-duration">Duration</a></li>
+            <li><a class="dropdown-item" href="#prediction-valence">Valence</a></li>
+            <li><a class="dropdown-item" href="#prediction-danceability">Danceability</a></li>
+            <li><a class="dropdown-item" href="#prediction-acousticness">Acousticness</a></li>
+            <li><a class="dropdown-item" href="#prediction-energy">Energy</a></li>
+            <li><a class="dropdown-item" href="#prediction-speechiness">Speechiness</a></li>
+          </ul>
         </div>
-    </nav>
+        <a class="nav-link" href="../features/">Features</a>
+        <a class="nav-link" href="../lyrics/">Lyrics</a>
+        <a class="nav-link" href="../genres/">Genres</a>
+      </div>
 
-    <!-- Page Content down below -->
+      <div class="nav nav-pills nav-fill ">
+        <a class="nav-link" href="../about/">About</a>
+      </div>
+    </div>
+  </nav>
 
-    <style>
+  <!-- Page Content down below -->
 
-    </style>
+  <style>
 
-    <div class="container-fluid justify-content-center m-auto">
-        <h1 class="text-center">
-            How did the Features change over time?
-        </h1>
-        <div class="row align-items-center m-5 bg-white shadow pt-2">
-            <h2 class="text-center">
-                Songs are getting shorter and shorter.
-            </h2>
-            <div class="col-lg">
-                <p class="">
-                    We have received the data about the duration of the songs as audio features. Shown here are the
-                    averages of the different years in seconds. It is clear that the duration of the songs increased
-                    from 1970 to the peak in 1990. This can be justified by the fact that 50 years ago the production of
-                    songs was associated with higher costs. From 1990 onwards, it became clear that, despite the
-                    presumably now low costs involved in music production, the duration was declining. For the year
-                    2019, the average duration of 198 seconds was below the limit of 200 seconds for the first time
-                    since 1970. This can probably be justified from two perspectives. On the one hand, the attention
-                    span is becoming shorter and shorter, which is also evident on platforms with high awareness such as
-                    TikTok. On the other hand, the shorter song duration could contribute to a song being heard more
-                    frequently as a result. So if billing is based on views rather than purchases, companies and artists
-                    will benefit more from shorter songs.
-                </p>
-                <a class="btn btn-outline-primary" href="../intro/#feature-duration" role="link">Duration</a>
-            </div>
-            <div class="col-auto">
-                <div class="iframe1-wrapper">
-                    <iframe class="iframe1" src="../plotly/predict/predict_duration.html"></iframe>
-                </div>
-            </div>
+  </style>
+
+  <div class="container-fluid justify-content-center m-auto">
+    <h1 class="text-center">
+      How did the Features change over time?
+    </h1>
+    <span class="anchor" id="prediction-duration"></span>
+    <div class="row align-items-center m-5 bg-white shadow pt-2">
+      <h2 class="text-center">
+        Songs are getting shorter and shorter.
+      </h2>
+      <div class="col-lg">
+        <p class="">
+          We have received the data about the duration of the songs as audio features. Shown here are the
+          averages of the different years in seconds. It is clear that the duration of the songs increased
+          from 1970 to the peak in 1990. This can be justified by the fact that 50 years ago the production of
+          songs was associated with higher costs. From 1990 onwards, it became clear that, despite the
+          presumably now low costs involved in music production, the duration was declining. For the year
+          2019, the average duration of 198 seconds was below the limit of 200 seconds for the first time
+          since 1970. This can probably be justified from two perspectives. On the one hand, the attention
+          span is becoming shorter and shorter, which is also evident on platforms with high awareness such as
+          TikTok. On the other hand, the shorter song duration could contribute to a song being heard more
+          frequently as a result. So if billing is based on views rather than purchases, companies and artists
+          will benefit more from shorter songs.
+        </p>
+        <a class="btn btn-outline-primary" href="../intro/#feature-duration" role="link">Duration</a>
+      </div>
+      <div class="col-auto">
+        <div class="iframe1-wrapper">
+          <iframe class="iframe1" src="../plotly/predict/predict_duration.html"></iframe>
         </div>
+      </div>
+    </div>
 
-        <div class="row align-items-center m-5 bg-white shadow pt-2">
-            <h2 class="text-center">
-                The sound of <s>silence</s> sadness.
-            </h2>
-            <div class="col-auto">
-                <div class="iframe1-wrapper">
-                    <iframe class="iframe1" src="../plotly/predict/predict_valence.html"></iframe>
-                </div>
-            </div>
-            <div class="col-lg">
-                <p>
-                    Based on the average values of the whales over the years, it is clear that the valence is
-                    decreasing. The value of valence describes the emotions of the songs, more about this can be read
-                    here. The phenomenon can be explained by the fact that music is not only used for celebrations or
-                    happy moments, but above all to process emotions at home in peace.
-                </p>
-                <a class="btn btn-outline-primary" href="../intro/#feature-valence" role="link">Info about Valence</a>
-            </div>
+    <span class="anchor" id="prediction-valence"></span>
+    <div class="row align-items-center m-5 bg-white shadow pt-2">
+      <h2 class="text-center">
+        The sound of <s>silence</s> sadness.
+      </h2>
+      <div class="col-auto">
+        <div class="iframe1-wrapper">
+          <iframe class="iframe1" src="../plotly/predict/predict_valence.html"></iframe>
         </div>
+      </div>
+      <div class="col-lg">
+        <p>
+          Based on the average values of the whales over the years, it is clear that the valence is
+          decreasing. The value of valence describes the emotions of the songs, more about this can be read
+          here. The phenomenon can be explained by the fact that music is not only used for celebrations or
+          happy moments, but above all to process emotions at home in peace.
+        </p>
+        <a class="btn btn-outline-primary" href="../intro/#feature-valence" role="link">Info about Valence</a>
+      </div>
+    </div>
 
-        <div class="row align-items-center m-5 bg-white shadow pt-2">
-            <h2 class="text-center">
-                I'll dance, dance, dance - With my hands, hands, hands
-            </h2>
-            <div class="col-lg">
-                <p>
-                    The fact that danceability values in music have been increasing over time could be attributed to
-                    several factors. One of the main reasons could be that the music industry and artists are
-                    increasingly focused on producing music that is suitable for clubs and dance events. This can lead
-                    to the rhythm, instrumentation, and arrangements of songs being designed for higher danceability.
+    <span class="anchor" id="prediction-danceability"></span>
+    <div class="row align-items-center m-5 bg-white shadow pt-2">
+      <h2 class="text-center">
+        I'll dance, dance, dance - With my hands, hands, hands
+      </h2>
+      <div class="col-lg">
+        <p>
+          The fact that danceability values in music have been increasing over time could be attributed to
+          several factors. One of the main reasons could be that the music industry and artists are
+          increasingly focused on producing music that is suitable for clubs and dance events. This can lead
+          to the rhythm, instrumentation, and arrangements of songs being designed for higher danceability.
 
-                    Another possible factor could be the development of technology and music production software. Modern
-                    production tools and software offer musicians and producers more opportunities to creatively design
-                    music, which can help increase the danceability of songs.
+          Another possible factor could be the development of technology and music production software. Modern
+          production tools and software offer musicians and producers more opportunities to creatively design
+          music, which can help increase the danceability of songs.
 
-                    Furthermore, changes in culture and society may also play a role. Particularly in recent decades,
-                    pop music has increasingly focused on the needs and preferences of younger generations who are often
-                    looking for music that will make them dance and party. This can result in overall increases in
-                    danceability values in music.
+          Furthermore, changes in culture and society may also play a role. Particularly in recent decades,
+          pop music has increasingly focused on the needs and preferences of younger generations who are often
+          looking for music that will make them dance and party. This can result in overall increases in
+          danceability values in music.
 
-                    Finally, the way danceability is measured in music may also play a role. Danceability is typically
-                    calculated based on tempo, rhythm, and beat patterns. If the calculation methods are improved or
-                    refined over time, this can lead to higher danceability values in music overall
-                </p>
-                <a class="btn btn-outline-primary" href="../intro/#feature-danceability" role="link">
-                    Info about Danceability
-                </a>
-            </div>
-            <div class="col-auto">
-                <div class="iframe1-wrapper">
-                    <iframe class="iframe1" src="../plotly/predict/predict_danceability.html"></iframe>
-                </div>
-            </div>
+          Finally, the way danceability is measured in music may also play a role. Danceability is typically
+          calculated based on tempo, rhythm, and beat patterns. If the calculation methods are improved or
+          refined over time, this can lead to higher danceability values in music overall
+        </p>
+        <a class="btn btn-outline-primary" href="../intro/#feature-danceability" role="link">
+          Info about Danceability
+        </a>
+      </div>
+      <div class="col-auto">
+        <div class="iframe1-wrapper">
+          <iframe class="iframe1" src="../plotly/predict/predict_danceability.html"></iframe>
         </div>
+      </div>
+    </div>
 
-        <div class="row align-items-center m-5 bg-white shadow pt-2">
-            <h2 class="text-center">
-                The Acoustic Renaissance: How music is returning to its natural roots
-            </h2>
-            <div class="col-auto">
-                <div class="iframe1-wrapper">
-                    <iframe class="iframe1" src="../plotly/predict/predict_acousticness.html"></iframe>
-                </div>
-            </div>
-            <div class="col-lg">
-                <p>
-                    Recently, however, there seems to be a trend that acousticness in music is on the rise again. This
-                    could be due to several factors, including a growing appreciation for more traditional instruments
-                    and musical styles, as well as an increasing demand for live performances and acoustic events. In
-                    addition, the return to acoustic instruments may also be a reaction to the overproduction and
-                    overcomplexity of modern music. Many artists and listeners long for a return to simpler, more
-                    natural sounds and less artificial sounds.
-                </p>
-                <a class="btn btn-outline-primary" href="../intro/#feature-acousticness" role="link">
-                    Info about acousticness
-                </a>
-            </div>
+    <span class="anchor" id="prediction-acousticness"></span>
+    <div class="row align-items-center m-5 bg-white shadow pt-2">
+      <h2 class="text-center">
+        The Acoustic Renaissance: How music is returning to its natural roots
+      </h2>
+      <div class="col-auto">
+        <div class="iframe1-wrapper">
+          <iframe class="iframe1" src="../plotly/predict/predict_acousticness.html"></iframe>
         </div>
+      </div>
+      <div class="col-lg">
+        <p>
+          Recently, however, there seems to be a trend that acousticness in music is on the rise again. This
+          could be due to several factors, including a growing appreciation for more traditional instruments
+          and musical styles, as well as an increasing demand for live performances and acoustic events. In
+          addition, the return to acoustic instruments may also be a reaction to the overproduction and
+          overcomplexity of modern music. Many artists and listeners long for a return to simpler, more
+          natural sounds and less artificial sounds.
+        </p>
+        <a class="btn btn-outline-primary" href="../intro/#feature-acousticness" role="link">
+          Info about acousticness
+        </a>
+      </div>
+    </div>
 
+    <span class="anchor" id="prediction-energy"></span>
+    <div class="row align-items-center m-5 bg-white shadow pt-2">
+      <h2 class="text-center">
+        From Pumped to Plodding: The ebbing energy levels of Today's Top Hits"
+      </h2>
+      <div class="col-lg">
+        <p>
+          There are various factors that could explain the decrease in energy levels in music since 2010. In
+          the years leading up to 2010, the music industry was heavily influenced by Electronic Dance Music
+          (EDM), which is characterized by fast, bass-heavy beats and repetitive melodies. This could have
+          contributed to an increase in energy levels in music.
 
-        <div class="row align-items-center m-5 bg-white shadow pt-2">
-            <h2 class="text-center">
-                From Pumped to Plodding: The ebbing energy levels of Today's Top Hits"
-            </h2>
-            <div class="col-lg">
-                <p>
-                    There are various factors that could explain the decrease in energy levels in music since 2010. In
-                    the years leading up to 2010, the music industry was heavily influenced by Electronic Dance Music
-                    (EDM), which is characterized by fast, bass-heavy beats and repetitive melodies. This could have
-                    contributed to an increase in energy levels in music.
-
-                    However, after 2010, the focus in the music industry shifted and there was a slowdown in beats and a
-                    departure from EDM. Another important factor is the rise of streaming services such as Spotify,
-                    which dominate the music market and are often listened to by users in different environments and
-                    contexts. To ensure that the music sounds good in every environment, many songs are produced with
-                    high levels of compression to ensure consistent volume levels. This can reduce the dynamics and
-                    energy levels of the music.
-                </p>
-                <a class="btn btn-outline-primary" href="../intro/#feature-energy" role="link">Info about Energy</a>
-            </div>
-            <div class="col-auto">
-                <div class="iframe1-wrapper">
-                    <iframe class="iframe1" src="../plotly/predict/predict_energy.html"></iframe>
-                </div>
-            </div>
+          However, after 2010, the focus in the music industry shifted and there was a slowdown in beats and a
+          departure from EDM. Another important factor is the rise of streaming services such as Spotify,
+          which dominate the music market and are often listened to by users in different environments and
+          contexts. To ensure that the music sounds good in every environment, many songs are produced with
+          high levels of compression to ensure consistent volume levels. This can reduce the dynamics and
+          energy levels of the music.
+        </p>
+        <a class="btn btn-outline-primary" href="../intro/#feature-energy" role="link">Info about Energy</a>
+      </div>
+      <div class="col-auto">
+        <div class="iframe1-wrapper">
+          <iframe class="iframe1" src="../plotly/predict/predict_energy.html"></iframe>
         </div>
-
-
-
-        <div class="row align-items-center m-5 bg-white shadow pt-2">
-            <h2 class="text-center">
-                One word says more than a thousand pictures
-            </h2>
-            <div class="col-auto">
-                <div class="iframe1-wrapper">
-                    <iframe class="iframe1" src="../plotly/predict/predict_speechiness.html"></iframe>
-                </div>
-            </div>
-            <div class="col-lg">
-                <p>
-                    In recent decades, the music industry has shown a clear trend towards higher speechiness in songs.
-                    This can be explained by various factors, such as the influence of hip-hop and rap on popular music
-                    or the increasing importance of streaming services like Spotify. In addition, the way music is
-                    listened to has also changed, and many people prefer songs that have a clear and distinct vocal
-                    performance. Finally, there are also technological developments that make it easier for music
-                    producers to increase the speechiness in their recordings, for example by using Auto-Tune software
-                    or special microphones and recording techniques. All these factors together lead to a permanent
-                    increase of Speechiness in music.
-                </p>
-                <a class="btn btn-outline-primary" href="../intro/#feature-speechiness" role="link">
-                    Info about Speechiness
-                </a>
-            </div>
-        </div>
-
-        <div class="row align-items-center m-5 bg-white shadow pt-2">
-            <div class="col">
-                <p>
-                    To discover the different features for yourself, you can find their descriptions under
-                    <a class="btn btn-primary" href="../intro/#feature-top">Data/Song-Features</a>
-                </p>
-
-            </div>
-        </div>
+      </div>
     </div>
 
 
-    <script src="./index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
+    <span class="anchor" id="prediction-speechiness"></span>
+    <div class="row align-items-center m-5 bg-white shadow pt-2">
+      <h2 class="text-center">
+        One word says more than a thousand pictures
+      </h2>
+      <div class="col-auto">
+        <div class="iframe1-wrapper">
+          <iframe class="iframe1" src="../plotly/predict/predict_speechiness.html"></iframe>
+        </div>
+      </div>
+      <div class="col-lg">
+        <p>
+          In recent decades, the music industry has shown a clear trend towards higher speechiness in songs.
+          This can be explained by various factors, such as the influence of hip-hop and rap on popular music
+          or the increasing importance of streaming services like Spotify. In addition, the way music is
+          listened to has also changed, and many people prefer songs that have a clear and distinct vocal
+          performance. Finally, there are also technological developments that make it easier for music
+          producers to increase the speechiness in their recordings, for example by using Auto-Tune software
+          or special microphones and recording techniques. All these factors together lead to a permanent
+          increase of Speechiness in music.
+        </p>
+        <a class="btn btn-outline-primary" href="../intro/#feature-speechiness" role="link">
+          Info about Speechiness
+        </a>
+      </div>
+    </div>
+
+    <div class="row align-items-center m-5 bg-white shadow pt-2">
+      <div class="col">
+        <p>
+          To discover the different features for yourself, you can find their descriptions under
+          <a class="btn btn-primary" href="../intro/#feature-description-top">Data/Song-Features</a>
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./index.js"></script>
 </body>
 
 </html>
