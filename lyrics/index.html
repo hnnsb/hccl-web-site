@@ -79,20 +79,19 @@
     </div>
   </div>
 
+  <span class="anchor" id="wordcloud-game"></span>
   <div class="row align-items-center m-5 bg-white shadow pt-2">
     <h1>Lyrics Game</h1>
     <div class="col-lg">
       <svg id="game-wordcloud" width="100%" height="100%"></svg>
     </div>
-    <div class="col">
-      <form id="guessing-form">
-        <span>
-          <input id="input-box" type="text" placeholder="Enter Title" autocomplete="off">
-          <input id="input-box" type="text" placeholder="Enter Artist" autocomplete="off">
-          <button class="btn btn-primary" id="submit-btn" type="button">Submit guess</button>
-        </span>
-      </form>
+    <div class="col-sm m-2">
+      <button class="choice btn btn-primary m-1" id="choice0" onclick="check(0)">Placeholder</button><br>
+      <button class="choice btn btn-primary m-1" id="choice1" onclick="check(1)">Placeholder</button><br>
+      <button class="choice btn btn-primary m-1" id="choice2" onclick="check(2)">Placeholder</button><br>
+      <button class="choice btn btn-primary m-1" id="choice3" onclick="check(3)">Placeholder</button><br>
     </div>
+    <audio id="audio-player" src="" duration=15>test</audio>
   </div>
 
   <script src="./index.js"></script>

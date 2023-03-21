@@ -55,12 +55,23 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
 
+let choice_idx
+
 function generateWordcloudString() {
     file_path = "../assets/lyrics/" + getRandomInt(1970, 2020) + "_lyrics.json"
-    console.log(file_path)
     return fetch(file_path).then((response) => response.json())
-        .then((songs) => songs[Math.floor(Math.random() * songs.length)])
-        .then((song) => {
+        .then((songs) => songs.sort(() => .5 - Math.random()).slice(0, 4))
+        .then((choices) => {
+            choice_idx = Math.floor(Math.random() * choices.length)
+            song = choices[choice_idx]
+            console.log(choice_idx)
+
+            choice_buttons = document.getElementsByClassName("choice")
+            console.log(choice_buttons)
+            for (let i = 0; i < choice_buttons.length; i++) {
+                choice_buttons[i].innerHTML = choices[i].name + " - " + choices[i].artists[0].name
+            }
+
             lyrics = song.lyrics
             lyrics = lyrics.substring(lyrics.indexOf("Lyrics") + 1);
             stopwords = new Set("1,2,3,4,5,lyrics,verse,refrain,chorus,interlude,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall".split(","))
@@ -73,8 +84,8 @@ function generateWordcloudString() {
                 .filter(w => w && !stopwords.has(w))
 
             wordcloud = WordCloud(words, {
-                width: 600,
-                height: 400,
+                width: 800,
+                height: 500,
                 padding: 0.1,
                 fontScale: 30
             })
@@ -84,24 +95,18 @@ function generateWordcloudString() {
 
 generateWordcloudString()
 
-var guesses = []
-
-var inputValidator = function () {
-    //Pushes guess into guesses array
-    guesses.push($('#number-input').val());
-
-
-    resetInputBox();
+function check(idx) {
+    let button = document.getElementById("choice" + idx)
+    if (idx == choice_idx) {
+        button.classList.remove("btn-primary")
+        button.classList.add("btn-success")
+    } else {
+        button.classList.remove("btn-primary")
+        button.classList.add("btn-danger")
+    }
+    restartGame(idx)
 }
 
-$('#submit-btn').on('click', inputValidator);
-$("input").keypress(function (event) {
-    if (event.which == 13) {
-        event.preventDefault();
-        inputValidator();
-    }
-});
-
-var resetInputBox = function () {
-    document.getElementById("guessing-form").reset()
+function restartGame(idx) {
+    document.getElementById("audio-player").src = choices[idx].preview_url
 }
