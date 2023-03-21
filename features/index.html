@@ -68,28 +68,28 @@
 
   <div class="container-fluid justify-content-center m-auto">
     <h1 class="text-center">
-      How did the Features change over time?
+      How did the Song-Features change over time?
     </h1>
     <span class="anchor" id="prediction-duration"></span>
     <div class="row align-items-center m-5 bg-white shadow pt-2">
-      <h2 class="text-center">
-        Songs are getting shorter and shorter.
-      </h2>
       <div class="col-lg">
-        <p class="">
-          We have received the data about the duration of the songs as audio features. Shown here are the
-          averages of the different years in seconds. It is clear that the duration of the songs increased
-          from 1970 to the peak in 1990. This can be justified by the fact that 50 years ago the production of
-          songs was associated with higher costs. From 1990 onwards, it became clear that, despite the
-          presumably now low costs involved in music production, the duration was declining. For the year
-          2019, the average duration of 198 seconds was below the limit of 200 seconds for the first time
-          since 1970. This can probably be justified from two perspectives. On the one hand, the attention
-          span is becoming shorter and shorter, which is also evident on platforms with high awareness such as
-          TikTok. On the other hand, the shorter song duration could contribute to a song being heard more
-          frequently as a result. So if billing is based on views rather than purchases, companies and artists
-          will benefit more from shorter songs.
+        <h2>
+          Songs are getting shorter and shorter
+        </h2>
+        <p>
+          Shown here is the average song duration per year. Beginning in 1970 with 216 seconds the song duration
+          increased until the peak of 275 seconds in 1990. From here onwards the average song length started to decrease
+          again until today. In 2019 the average duration dropped below 200 seconds for the first time ever, in the
+          observed period. This phenomenon could be possible because of the change of media. In the 70s music was mostly
+          sold on vinyls. A media with only scarce amount of playback time. With the introduction of the CD, limited
+          playback time was less of an issue, songs became longer. In the last decade, streaming services like Spotify,
+          Apple Music and more have gained popularity and are for most people the primary way of music consumption. For
+          some services artists are payed based on clicks rather than play time, this lead to the creation of shorter
+          songs to maximize clicks, which explains the recent drop in the average song duration. Another factor is
+          production costs, as recording long audios in past was expensive. But with the introduction of digital tools,
+          this cost could be cut down.
         </p>
-        <a class="btn btn-outline-primary" href="../intro/#feature-duration" role="link">Duration</a>
+        <a class=" btn btn-outline-primary" href="../intro/#feature-duration" role="link">Duration</a>
       </div>
       <div class="col-auto">
         <div class="iframe1-wrapper">
@@ -100,17 +100,18 @@
 
     <span class="anchor" id="prediction-valence"></span>
     <div class="row align-items-center m-5 bg-white shadow pt-2">
-      <h2 class="text-center">
-        The sound of <s>silence</s> sadness.
-      </h2>
+
       <div class="col-auto">
         <div class="iframe1-wrapper">
           <iframe class="iframe1" src="../plotly/predict/predict_valence.html"></iframe>
         </div>
       </div>
       <div class="col-lg">
-        <p>
-          Based on the average values of the whales over the years, it is clear that the valence is
+        <h2>
+          The sound of <s>silence</s> sadness.
+        </h2>
+        <p style="font-size: larger;">
+          Based on the average values of the valence over the years, it is clear that the valence is
           decreasing. The value of valence describes the emotions of the songs, more about this can be read
           here. The phenomenon can be explained by the fact that music is not only used for celebrations or
           happy moments, but above all to process emotions at home in peace.
@@ -121,28 +122,30 @@
 
     <span class="anchor" id="prediction-danceability"></span>
     <div class="row align-items-center m-5 bg-white shadow pt-2">
-      <h2 class="text-center">
-        I'll dance, dance, dance - With my hands, hands, hands
-      </h2>
       <div class="col-lg">
+        <h2>
+          I'll dance, dance, dance - <br>
+          With my hands, hands, hands
+        </h2>
         <p>
-          The fact that danceability values in music have been increasing over time could be attributed to
+          The average danceability started to rise in 1970, with slight plateau in the 90s. In recent years the
+          danceability clearly starts to rise again.<br>
+          This could be attributed to
           several factors. One of the main reasons could be that the music industry and artists are
           increasingly focused on producing music that is suitable for clubs and dance events. This can lead
           to the rhythm, instrumentation, and arrangements of songs being designed for higher danceability.
-
-          Another possible factor could be the development of technology and music production software. Modern
-          production tools and software offer musicians and producers more opportunities to creatively design
-          music, which can help increase the danceability of songs.
-
+          <br>
+          Popular music in general has shifted away from rock music to more catchy pop tunes, which could have an impact
+          on this recent raise of danceability.
           Furthermore, changes in culture and society may also play a role. Particularly in recent decades,
           pop music has increasingly focused on the needs and preferences of younger generations who are often
           looking for music that will make them dance and party. This can result in overall increases in
           danceability values in music.
-
+          <br>
           Finally, the way danceability is measured in music may also play a role. Danceability is typically
           calculated based on tempo, rhythm, and beat patterns. If the calculation methods are improved or
-          refined over time, this can lead to higher danceability values in music overall
+          refined over time, this can lead to higher danceability values in music overall. And afterall danceability is
+          highly subjective.
         </p>
         <a class="btn btn-outline-primary" href="../intro/#feature-danceability" role="link">
           Info about Danceability
@@ -166,13 +169,13 @@
         </div>
       </div>
       <div class="col-lg">
-        <p>
+        <p style="font-size: larger;">
           Recently, however, there seems to be a trend that acousticness in music is on the rise again. This
           could be due to several factors, including a growing appreciation for more traditional instruments
           and musical styles, as well as an increasing demand for live performances and acoustic events. In
           addition, the return to acoustic instruments may also be a reaction to the overproduction and
           overcomplexity of modern music. Many artists and listeners long for a return to simpler, more
-          natural sounds and less artificial sounds.
+          natural sounds and less artificial noises.
         </p>
         <a class="btn btn-outline-primary" href="../intro/#feature-acousticness" role="link">
           Info about acousticness
