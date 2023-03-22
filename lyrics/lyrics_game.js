@@ -57,6 +57,8 @@ function getRandomInt(min, max) {
 
 let choices
 let choice_idx
+let streak = 0
+let guesses = 0
 
 async function generateWordcloud() {
     // Choose random file
@@ -91,7 +93,7 @@ async function generateWordcloud() {
         .map(w_3 => w_3.substring(0, 30))
         .map(w_4 => w_4.toLowerCase())
         .filter(w_5 => w_5 && !stopwords.has(w_5));
-    wordcloud = WordCloud(words, {
+    let wordcloud = WordCloud(words, {
         width: 600,
         height: 400,
         padding: 0.2,
@@ -111,10 +113,26 @@ generateWordcloud()
 function check(idx) {
     let button = document.getElementById("choice" + idx)
     if (idx == choice_idx) {
+        if (guesses == 0) {
+            streak++
+        }
+        guesses = 0
         button.classList.remove("btn-outline-primary")
         button.classList.add("btn-success")
         playAudio()
+
+        if (streak % 5 == 0 && streak > 0) {
+            alert(STREAK_MESSAGES[streak / 5 - 1], "success")
+        } else if (streak > 40) {
+            // Special thing happening after streak of 40
+            var audio = document.getElementById('audio');
+            var source = document.getElementById('audioSource');
+            source.src = "https://p.scdn.co/mp3-preview/b4c682084c3fd05538726d0a126b7e14b6e92c83?cid=47ed75c7b2bf45229352c38954ee1c9c"
+            audio.play()
+        }
     } else {
+        streak = 0
+        guesses++
         button.classList.remove("btn-outline-primary")
         button.classList.add("btn-danger")
     }
@@ -143,3 +161,32 @@ function restartAfterAudio(event) {
         restartGame()
     }
 }
+
+const alertPlaceholder = document.getElementById('streakAlert')
+
+const alert = (message, type) => {
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+        `   <h2 class="text-center">${message}</h2>`,
+        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        '</div>'
+    ].join('')
+
+    child = alertPlaceholder.firstElementChild
+    if (child != null) {
+        alertPlaceholder.removeChild(alertPlaceholder.firstElementChild)
+    }
+    alertPlaceholder.append(wrapper)
+}
+
+STREAK_MESSAGES = [
+    "Guessing Spree",
+    "Guessing Frenzy",
+    "Guessing Riot",
+    "Rampage",
+    "Dreamwonder",
+    "Boogeyman",
+    "Grim Guesser",
+    "Demon"
+]
