@@ -48,6 +48,7 @@
             role="button" aria-expanded="false">Lyrics</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#sentiment-score">Sentiment Analysis</a></li>
+            <li><a class="dropdown-item" href="#sentiment-time">Sentiment over time</a></li>
             <li><a class="dropdown-item" href="#wordcloud-game">Lyrics Game</a></li>
           </ul>
         </div>
@@ -68,24 +69,43 @@
 
   <span class="anchor" id="sentiment-score"></span>
   <div class="row align-items-center m-5 bg-white shadow">
-    <h2>
-      Happy or unhappy - That's the question.
-    </h2>
     <div class="col-lg">
-      In this graph, we see the frequency of the sentiment score of the songs overall.
-      We have examined the lyrics of the songs and output a sentiment value that lies between -1 and 1.
-      -1 means that the song was very sad, whereas a score of 1 or a value close to 1 means that the song is associated
-      with happy emotions.
-      What is clear to see is that there are hardly any songs that have a value that does not fall into the maximum or
-      minimum values.
-      So there are mainly songs which are associated with negative emotions or most which are associated with very
-      positive emotions.
-
+      <h2>
+        Happy or unhappy - That's the question.
+      </h2>
+      <p>
+        In this graph, we see the frequency of the sentiment score of the songs overall.
+        We have examined the lyrics of the songs and output a sentiment value that lies between -1 and 1.
+        -1 means that the song was very sad, whereas a score of 1 or a value close to 1 means that the song is
+        associated
+        with happy emotions.
+        What is clear to see is that there are hardly any songs that have a value that does not fall into the maximum or
+        minimum values.
+        So there are mainly songs which are associated with negative emotions or most which are associated with very
+        positive emotions.
+      </p>
     </div>
     <div class="col-auto">
       <div class="iframe1-wrapper">
         <iframe class="iframe1" src="../plotly/sentiment_analysis_historgram.html"></iframe>
       </div>
+    </div>
+  </div>
+
+  <span class="anchor" id="sentiment-time"></span>
+  <div class="row align-items-center m-5 bg-white shadow">
+    <div class="col-auto">
+      <div class="iframe1-wrapper">
+        <iframe class="iframe1" src="../plotly/sentiment_over_time.html"></iframe>
+      </div>
+    </div>
+    <div class="col-lg">
+      <h2>
+        Title
+      </h2>
+      <p>
+        text
+      </p>
     </div>
   </div>
 
@@ -114,7 +134,7 @@
     <div class="row m-2">
       <div class="col-md-7">
         <div class="svg-container">
-          <svg id="game-wordcloud" viewBox="0 0 600 400" alignment-baseline="auto"></svg>
+          <svg id="game-wordcloud" viewBox="0 0 600 400" alignment-baseline="auto">Wordcloud of song lyrics</svg>
         </div>
       </div>
       <div class="col-md-5">
