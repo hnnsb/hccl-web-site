@@ -128,6 +128,7 @@ function check(idx) {
             var audio = document.getElementById('audio');
             var source = document.getElementById('audioSource');
             source.src = "https://p.scdn.co/mp3-preview/b4c682084c3fd05538726d0a126b7e14b6e92c83?cid=47ed75c7b2bf45229352c38954ee1c9c"
+            audio.load()
             audio.play()
         }
     } else {
@@ -135,6 +136,7 @@ function check(idx) {
         guesses++
         button.classList.remove("btn-outline-primary")
         button.classList.add("btn-danger")
+        removeAlert()
     }
 }
 
@@ -175,11 +177,15 @@ const alert = (message, type) => {
         '</div>'
     ].join('')
 
+    removeAlert()
+    streakAlert.append(wrapper)
+}
+
+function removeAlert() {
     child = streakAlert.firstElementChild
     if (child != null) {
         streakAlert.removeChild(streakAlert.firstElementChild)
     }
-    streakAlert.append(wrapper)
 }
 
 STREAK_MESSAGES = [
