@@ -55,58 +55,91 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
 
+let choices
 let choice_idx
 
-function generateWordcloudString() {
+async function generateWordcloud() {
+    // Choose random file
     file_path = "../assets/lyrics/" + getRandomInt(1970, 2020) + "_lyrics.json"
-    return fetch(file_path).then((response) => response.json())
-        .then((songs) => songs.sort(() => .5 - Math.random()).slice(0, 4))
-        .then((choices) => {
-            choice_idx = Math.floor(Math.random() * choices.length)
-            song = choices[choice_idx]
-            console.log(choice_idx)
+    // Load file
+    const response = await fetch(file_path);
+    // Parse file
+    const songs = await response.json();
+    // Take 4 random entries
+    choices = songs.sort(() => 0.5 - Math.random()).slice(0, 4);
+    // Generate random right choice
+    choice_idx = Math.floor(Math.random() * choices.length);
+    let song = choices[choice_idx];
 
-            choice_buttons = document.getElementsByClassName("choice")
-            console.log(choice_buttons)
-            for (let i = 0; i < choice_buttons.length; i++) {
-                choice_buttons[i].innerHTML = choices[i].name + " - " + choices[i].artists[0].name
-            }
+    // Reset button styling and add new choice titles
+    choice_buttons = document.getElementsByClassName("choice");
+    for (let i = 0; i < choice_buttons.length; i++) {
+        choice_buttons[i].classList.remove("btn-danger");
+        choice_buttons[i].classList.remove("btn-success");
+        choice_buttons[i].classList.add("btn-outline-primary");
+        choice_buttons[i].innerHTML = "<h5>" + choices[i].name + "</h5><p>" + choices[i].artists[0].name + "</p>";
+    }
 
-            lyrics = song.lyrics
-            lyrics = lyrics.substring(lyrics.indexOf("Lyrics") + 1);
-            stopwords = new Set("1,2,3,4,5,lyrics,verse,refrain,chorus,interlude,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall".split(","))
-            words = lyrics.split(/[\s.]+/g)
-                .map(w => w.replace(/^[“‘"\-—()\[\]{}]+/g, ""))
-                .map(w => w.replace(/[;:.!?()\[\]{},"'’”\-—]+$/g, ""))
-                .map(w => w.replace(/['’]s$/g, ""))
-                .map(w => w.substring(0, 30))
-                .map(w => w.toLowerCase())
-                .filter(w => w && !stopwords.has(w))
-
-            wordcloud = WordCloud(words, {
-                width: 800,
-                height: 500,
-                padding: 0.1,
-                fontScale: 30
-            })
-            d3.select("#game-wordcloud").append(() => wordcloud)
-        })
+    // Generate wordcloud
+    lyrics = song.lyrics;
+    lyrics = lyrics.substring(lyrics.indexOf("Lyrics") + 1);
+    stopwords = new Set("1,2,3,4,5,lyrics,verse,refrain,chorus,interlude,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall".split(","));
+    words = lyrics.split(/[\s.]+/g)
+        .map(w => w.replace(/^[“‘"\-—()\[\]{}]+/g, ""))
+        .map(w_1 => w_1.replace(/[;:.!?()\[\]{},"'’”\-—]+$/g, ""))
+        .map(w_2 => w_2.replace(/['’]s$/g, ""))
+        .map(w_3 => w_3.substring(0, 30))
+        .map(w_4 => w_4.toLowerCase())
+        .filter(w_5 => w_5 && !stopwords.has(w_5));
+    wordcloud = WordCloud(words, {
+        width: 600,
+        height: 400,
+        padding: 0.2,
+        fontScale: 20
+    });
+    // Remove old wordcloud
+    children = document.getElementById("game-wordcloud").childNodes;
+    for (let i_1 = 0; i_1 < children.length; i_1++) {
+        children[i_1].innerHTML = "";
+    }
+    // Add new wordcloud
+    d3.select("#game-wordcloud").append(() => wordcloud);
 }
 
-generateWordcloudString()
+generateWordcloud()
 
 function check(idx) {
     let button = document.getElementById("choice" + idx)
     if (idx == choice_idx) {
-        button.classList.remove("btn-primary")
+        button.classList.remove("btn-outline-primary")
         button.classList.add("btn-success")
+        playAudio()
     } else {
-        button.classList.remove("btn-primary")
+        button.classList.remove("btn-outline-primary")
         button.classList.add("btn-danger")
     }
-    restartGame(idx)
 }
 
-function restartGame(idx) {
-    document.getElementById("audio-player").src = choices[idx].preview_url
+
+
+function restartGame() {
+    document.getElementById('audio').pause()
+    generateWordcloud()
+}
+
+function playAudio() {
+    var audio = document.getElementById('audio');
+    audio.volume = 0.1
+    var source = document.getElementById('audioSource');
+    source.src = choices[choice_idx].preview_url;
+
+    audio.load(); //call this to just preload the audio without playing
+    audio.play(); //call this to play the song right away
+}
+
+function restartAfterAudio(event) {
+    if (event.currentTime >= 28) {
+        event.pause()
+        restartGame()
+    }
 }
