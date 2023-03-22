@@ -149,10 +149,14 @@ function playAudio() {
     var audio = document.getElementById('audio');
     audio.volume = 0.1
     var source = document.getElementById('audioSource');
-    source.src = choices[choice_idx].preview_url;
+    if (choices[choice_idx].preview_url != null) {
 
-    audio.load(); //call this to just preload the audio without playing
-    audio.play(); //call this to play the song right away
+        source.src = choices[choice_idx].preview_url;
+        audio.load(); //call this to just preload the audio without playing
+        audio.play(); //call this to play the song right away
+    }
+
+
 }
 
 function restartAfterAudio(event) {
