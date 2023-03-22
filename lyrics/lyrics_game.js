@@ -155,8 +155,6 @@ function playAudio() {
         audio.load(); //call this to just preload the audio without playing
         audio.play(); //call this to play the song right away
     }
-
-
 }
 
 function restartAfterAudio(event) {
@@ -166,7 +164,7 @@ function restartAfterAudio(event) {
     }
 }
 
-const alertPlaceholder = document.getElementById('streakAlert')
+const streakAlert = document.getElementById('streakAlert')
 
 const alert = (message, type) => {
     const wrapper = document.createElement('div')
@@ -177,11 +175,11 @@ const alert = (message, type) => {
         '</div>'
     ].join('')
 
-    child = alertPlaceholder.firstElementChild
+    child = streakAlert.firstElementChild
     if (child != null) {
-        alertPlaceholder.removeChild(alertPlaceholder.firstElementChild)
+        streakAlert.removeChild(streakAlert.firstElementChild)
     }
-    alertPlaceholder.append(wrapper)
+    streakAlert.append(wrapper)
 }
 
 STREAK_MESSAGES = [
