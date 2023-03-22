@@ -43,7 +43,15 @@
       <div class="nav nav-pills nav-fill ">
         <a class="nav-link" href="../intro/">Data</a>
         <a class="nav-link" href="../features/">Features</a>
-        <a class="nav-link active" aria-current="page" href="../lyrics/">Lyrics</a>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" aria-current="page" data-bs-toggle="dropdown" href="../lyrics/"
+            role="button" aria-expanded="false">Lyrics</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#sentiment-score">Sentiment Analysis</a></li>
+            <li><a class="dropdown-item" href="#wordcloud-game">Lyrics Game</a></li>
+          </ul>
+        </div>
+
         <a class="nav-link" href="../genres/">Genres</a>
       </div>
 
@@ -58,7 +66,8 @@
     <img class="wordcloud" src="../assets/all_lyrics_wordcloud.png">
   </div>
 
-  <div class="row align-items-center m-5 bg-white shadow pt-2">
+  <span class="anchor" id="sentiment-score"></span>
+  <div class="row align-items-center m-5 bg-white shadow">
     <h2>
       Happy or unhappy - That's the question.
     </h2>
@@ -81,7 +90,7 @@
   </div>
 
   <span class="anchor" id="wordcloud-game"></span>
-  <div class="row align-items-center m-5 bg-white shadow pt-2">
+  <div class="row align-items-center m-5 bg-white shadow">
     <h1>Lyrics Game</h1>
     <div class="row m-2">
       <h2>How to play</h2>

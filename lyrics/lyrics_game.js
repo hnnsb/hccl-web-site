@@ -138,7 +138,7 @@ function playAudio() {
 }
 
 function restartAfterAudio(event) {
-    if (event.currentTime >= 28) {
+    if (event.currentTime >= 15) {
         event.pause()
         restartGame()
     }

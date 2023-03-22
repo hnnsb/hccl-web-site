@@ -126,6 +126,9 @@
     width: 410px;
 
     padding: 0;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    margin: 5px;
 }
 
 @media (min-width: 800px) {
@@ -144,14 +147,14 @@
         float: left;
         overflow: hidden;
     
-        height: 51vh;
+        height: 52vh;
         width: 610px;
     
         padding: 0;
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1700px) {
     .iframe1 {
         height: 100%;
         width: 100%;
